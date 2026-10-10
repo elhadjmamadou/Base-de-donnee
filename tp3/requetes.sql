@@ -1,0 +1,83 @@
+/*
+CREATE TABLE REDUCTION (
+	Code VARCHAR(5) NOT NULL,
+	Quantite INT NOT NULL,
+	Reduction REAL NOT NULL,
+	PRIMARY KEY (Code)
+);
+
+
+
+
+SELECT  SUM(Quantite) AS QUANTITE_TOTAL
+FROM CLIENT 
+NATURAL JOIN COMMANDE
+NATURAL JOIN DETAIL
+NATURAL JOIN PRODUIT
+WHERE Ville = 'Toulouse' AND TypeP = "Cheville";
+
+
+SELECT Code , Reduction
+FROM REDUCTION
+WHERE Reduction != 0;
+
+SELECT DISTINCT R.Code, R.Reduction
+FROM PRODUIT P, DETAIL D, REDUCTION R
+WHERE P.RefP = D.RefP AND P.RefP = R.code AND Reduction != 0
+ORDER BY R.Reduction ASC; 
+
+SELECT DISTINCT D.RefP, COUNT(D.RefCom)
+
+FROM DETAIL D, REDUCTION R
+
+WHERE  D.RefP = R.Code AND R.Reduction >0 AND D.Quantite > R.Quantite
+
+GROUP BY D.RefP;
+
+Exercice 2 - Mise `a jour de n-uplets
+UPDATE CLIENT
+SET CAT = 'C1'
+WHERE RefC = 7;
+
+UPDATE CLIENT
+SET CAT = 'C2'
+WHERE RefC = 12;
+
+
+SELECT RefC, NomC
+FROM  CLIENT 
+NATURAL JOIN COMMANDE 
+NATURAL JOIN DETAIL 
+NATURAL JOIN PRODUIT
+WHERE TypeP = 'Clou' AND Quantite > 50
+GROUP BY RefC;
+
+*/
+
+SELECT NomC
+FROM CLIENT
+WHERE RefP not in (
+	SELECT RefP
+	FROM CLIENT
+	NATURAL JOIN DETAIL
+	NATURAL JOIN PRODUIT
+	
+	WHERE NomC = 'Vanderka'
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

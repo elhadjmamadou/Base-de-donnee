@@ -1,0 +1,49 @@
+/*
+
+CREATE TABLE CLIENT(
+Refc INT NOT NULL,
+NomC VARCHAR(30) NOT NULL,
+Ville VARCHAR(30) NOT NULL,
+CAT VARCHAR(2),
+PRIMARY KEY (Refc)
+);
+
+
+CREATE TABLE PRODUIT(
+	RefP INT NOT NULL,
+	TypeP VARCHAR(20) NOT NULL,
+	Prix INT NOT NULL,
+	QStock INT NOT NULL,
+	PRIMARY KEY (RefP)
+);
+
+
+CREATE TABLE COMMANDE(
+       RefCom INT NOT NULL,
+       RefC INT NOT NULL,
+       DateCom DATE NOT NULL,
+       PRIMARY KEY (RefCom)
+);
+
+
+
+CREATE TABLE DETAIL(
+	RefCom int NOT NULL,
+	RefP VARCHAR(5) NOT NULL,
+	Quantite INT NOT NULL,
+	PRIMARY KEY(RefCom,RefP)
+);
+
+*/
+
+
+
+
+CREATE TABLE PRODUIT(
+        RefP VARCHAR(5) NOT NULL,
+        TypeP VARCHAR(20) NOT NULL,
+        Prix INT NOT NULL,
+        QStock INT NOT NULL,
+        PRIMARY KEY (RefP)
+);
+
